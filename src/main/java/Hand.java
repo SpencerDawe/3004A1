@@ -51,6 +51,12 @@ public class Hand {
 			x = x + (this.hand.get(i).getValue());
 		}
 		if (x > 21) {
+			for(int i = 0; i <this.hand.size();i++) { 
+				if(this.hand.get(i).getValue() == 11) {
+					this.hand.get(i).setValue(1);
+					return (this.checkBust());
+				}
+			}
 			return true;
 		}
 		return false;

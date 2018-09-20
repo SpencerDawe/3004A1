@@ -5,7 +5,7 @@ public class HandTest extends TestCase{
 	public void testCheckBust() {
 		Deck decktest = new Deck();
 		decktest.add("H3", 3);
-		decktest.add("DA",11);
+		decktest.add("DK",10);
 		decktest.add("DJ",10);
 		Hand testhand = new Hand();
 		decktest.deal(testhand);
@@ -55,6 +55,7 @@ public class HandTest extends TestCase{
 		decktest.add("DA",11);
 		Hand testhand = new Hand();
 		decktest.deal(testhand);
+		testhand.checkBust();
 		assertEquals(11,testhand.getCardValue(0));
 	}
 	
@@ -66,6 +67,7 @@ public class HandTest extends TestCase{
 		Hand testhand = new Hand();
 		decktest.deal(testhand);
 		decktest.hit(testhand);
+		testhand.checkBust();
 		assertEquals(1,testhand.getCardValue(0));
 	}
 	
@@ -78,6 +80,7 @@ public class HandTest extends TestCase{
 		decktest.deal(testhand);
 		assertEquals(11,testhand.getCardValue(1));
 		decktest.hit(testhand);
+		testhand.checkBust();
 		assertEquals(1,testhand.getCardValue(1));
 	}
 	
@@ -90,7 +93,9 @@ public class HandTest extends TestCase{
 		Hand testhand = new Hand();
 		decktest.deal(testhand);
 		decktest.hit(testhand);
+		testhand.checkBust();
 		decktest.hit(testhand);
+		testhand.checkBust();
 		assertEquals(1,testhand.getCardValue(1));
 		assertEquals(1,testhand.getCardValue(0));
 	}
@@ -103,6 +108,7 @@ public class HandTest extends TestCase{
 		Hand testhand = new Hand();
 		decktest.deal(testhand);
 		decktest.hit(testhand);
+		testhand.checkBust();
 		assertEquals(11,testhand.getCardValue(1));
 		assertEquals(1,testhand.getCardValue(0));
 	}
