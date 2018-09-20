@@ -20,6 +20,14 @@ public class Hand {
 		return this.hand.get(x).getValue();
 	}
 	
+	public int getHandValue() {
+		int x = 0;
+		for(int i = 0; i <this.hand.size();i++) { 
+			x = x + (this.hand.get(i).getValue());
+		}
+		return x;
+	}
+	
 	public void printHand() {
 		int x = 0;
 		for(int i = 0; i <this.hand.size();i++) {
@@ -32,6 +40,15 @@ public class Hand {
 		System.out.println();
 	}
 	
+	public boolean soft17(){
+		for(int i = 0; i <this.hand.size();i++) { 
+			if(this.hand.get(i).getValue() == 11) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void printDealerHand() {
 		int x = 0;
 		System.out.print("Facedown,");
@@ -41,7 +58,7 @@ public class Hand {
 		for(int i = 0; i <this.hand.size();i++) { 
 			x = x + (this.hand.get(i).getValue());
 		}
-		System.out.print(" And the value of the hand is: "+ x );
+		System.out.print(" And the value of the hand is: ?");
 		System.out.println();
 	}
 	
