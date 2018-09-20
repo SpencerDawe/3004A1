@@ -45,4 +45,21 @@ public class Deck {
 		Collections.shuffle(deckOfCards);
 		return deckOfCards.size();
 	}
+	
+	public void deal(Hand hand) {
+		
+		Card topCard = deckOfCards.remove(0);
+        hand.getHand().add(topCard);
+        Card topCard2 = deckOfCards.remove(0);
+        hand.getHand().add(topCard2);
+	}
+	
+	public void hit(Hand hand) {
+		Card topCard = deckOfCards.remove(0);
+        hand.getHand().add(topCard);
+	}
+	
+	public void add(String s, int n) { //used in tests
+		deckOfCards.add(0,(new Card(s,n)));
+	}
 }
